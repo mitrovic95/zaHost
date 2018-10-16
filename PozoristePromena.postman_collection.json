@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "5c9621ef-e9e4-484b-9e11-0d5e6d6320cd",
+		"name": "PozoristePromena",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Slike",
+			"item": [
+				{
+					"name": "Get slike/id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/slike/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"slike",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get slike",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/countries/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"countries",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create slike",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Apoteka Jankovic\",\r\n\t\"address\": \"Gunduliceva 44\",\r\n\t\"validLicenceTill\": 2025,\r\n\t\"contactPerson\": [],\r\n\t\"companyCategory\": []\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete slike",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update slike",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpdmFuIiwiY3JlYXRlZCI6MTUwNDI2MDk5OTE2NywiZXhwIjoxNTA0Mjc4OTk5fQ.7u2maciTfq_i1jsl8FVqW84ls54bwg7RO1nXb-ngvieo0c5b4tGrSR97Yo7zx8IAYKRN7ALCUO2d5zCf2FlKMA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Apoteka Jankovic\",\r\n\t\"address\": \"Gunduliceva 44\",\r\n\t\"validLicenceTill\": 202\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/company/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"company",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

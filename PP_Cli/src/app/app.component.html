@@ -1,0 +1,29 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="home">PozoristePromena</a>
+      <a class="navbar-brand" href="istorijat">Istorijat</a>
+      <a class="navbar-brand" href="nova">Predstava</a>
+      <a class="navbar-brand" href="nova">Repertoar</a>
+      <a class="navbar-brand" href="galerija">Galerija</a>
+      <a class="navbar-brand" href="ansambl">Ansambl</a>
+      <a class="navbar-brand" href="kontakt">Kontakt</a>
+      <a class="navbar-brand" href="oNama">O nama</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <!-- <ul class="nav navbar-nav">
+        <li class="active"><a href="studenti">Students</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul> -->
+      <ul class="nav navbar-nav pull-right">
+          <!-- <li *ngIf="!isLoggedIn()"><a (click)="toggleLogIn()">LogIn</a></li> -->
+            <!-- <li  (click)="toggleLogIn()" routerLink="login"><a>LogIn</a></li> -->
+            <li *ngIf="isLoggedIn()" [routerLink]="['../nova']"><a (click)="logout()">Logout</a></li>
+				<!-- <li *ngIf="isLoggedIn()"><Za (click)="logout()">Logout</a></li> -->
+			</ul>
+    </div>
+  </div>
+</nav>
+
+    <router-outlet></router-outlet>

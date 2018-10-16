@@ -1,0 +1,1242 @@
+{
+	"info": {
+		"_postman_id": "5c9621ef-e9e4-484b-9e11-0d5e6d6320cd",
+		"name": "PozoristePromena",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Slike",
+			"item": [
+				{
+					"name": "slike/id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ffd4f816-4ad7-40eb-81e5-81c2bdeab7e5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/slike/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"slike",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "slike",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/slike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"slike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "slike",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \"id\": 8,\n        \"namena\": \"Nova slika\",\n        \"datum\": 1040403600000,\n        \"sadrzaj\": \"https://pbs.twimg.com/profile_images/893108438972063744/IWwbjH9X_400x400.jpg\"\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/slike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"slike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "slike",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/slike/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"slike",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "slike",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \"id\": 1,\n        \"namena\": \"Nova slika2\",\n        \"datum\": 1040403600000,\n        \"sadrzaj\": \"https://pbs.twimg.com/profile_images/893108438972063744/IWwbjH9X_400x400.jpg\"\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/slike/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"slike",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Istorijat",
+			"item": [
+				{
+					"name": "istorijat/id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ffd4f816-4ad7-40eb-81e5-81c2bdeab7e5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/istorijat/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"istorijat",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "istorijat",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/istorijat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"istorijat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "istorijat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 10,\n        \"tekst\": \"Electronic\",\n        \"slike\": {\n            \"id\": 1,\n            \"namena\": \"Nova slika\",\n            \"datum\": 1040403600000,\n            \"sadrzaj\": \"https://pbs.twimg.com/profile_images/893108438972063744/IWwbjH9X_400x400.jpg\"\n        }\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/istorijat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"istorijat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "istorijat",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/istorijat/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"istorijat",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "istorijat",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 10,\n        \"tekst\": \"ddd\",\n        \"slike\": {\n            \"id\": 1,\n            \"namena\": \"Nova slika\",\n            \"datum\": 1040403600000,\n            \"sadrzaj\": \"https://pbs.twimg.com/profile_images/893108438972063744/IWwbjH9X_400x400.jpg\"\n        }\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/istorijat/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"istorijat",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Osoba",
+			"item": [
+				{
+					"name": "osoba/id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ffd4f816-4ad7-40eb-81e5-81c2bdeab7e5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/osoba/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"osoba",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "osoba",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/osoba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"osoba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "osoba",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"ime\": \"Dejan\",\n    \"prezime\": \"aaaaaa\",\n    \"slika1\": \"Electronic\",\n    \"slika2\": \"assa\",\n    \"opis\": \"dasdadsd@gmail.com\",\n    \"prioritet\": 1,\n    \"brojTelefona\": 64000000,\n    \"mejl\": \"Mitrovic\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/osoba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"osoba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "osoba",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/osoba/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"osoba",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "osoba",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"ime\": \"Dejan\",\n    \"prezime\": \"CAR\",\n    \"slika1\": \"Electronic\",\n    \"slika2\": \"assa\",\n    \"opis\": \"dasdadsd@gmail.com\",\n    \"prioritet\": 1,\n    \"brojTelefona\": 64000000,\n    \"mejl\": \"Mitrovic\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/osoba/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"osoba",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Predstava",
+			"item": [
+				{
+					"name": "predstava/id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ffd4f816-4ad7-40eb-81e5-81c2bdeab7e5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/predstava/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstava",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "predstava",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/predstava",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstava"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "predstava",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"naslov\": \"Hamlet\",\n    \"opis\": \"laaslasl\",\n    \"slika\": \"dddd\",\n    \"slike\": {\n        \"id\": 1,\n        \"namena\": null,\n        \"datum\": null,\n        \"sadrzaj\": null\n    },\n    \"video\": \"Hamlet\",\n    \"osoba\": {\n        \"id\": 1,\n        \"ime\": \"Dejan\",\n        \"prezime\": \"CAR\",\n        \"slika1\": \"Electronic\",\n        \"slika2\": \"assa\",\n        \"opis\": \"dasdadsd@gmail.com\",\n        \"prioritet\": 1,\n        \"brojTelefona\": 64000000,\n        \"mejl\": \"Mitrovic\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/predstava",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstava"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "predstava",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/predstava/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstava",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "predstava",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"naslov\": \"Hamlet\",\n    \"opis\": \"laaslasl\",\n    \"slika\": \"proba\",\n    \"slike\": {\n        \"id\": 1,\n        \"namena\": null,\n        \"datum\": null,\n        \"sadrzaj\": null\n    },\n    \"video\": \"Hamlet\",\n    \"osoba\": {\n        \"id\": 1,\n        \"ime\": \"Dejan\",\n        \"prezime\": \"CAR\",\n        \"slika1\": \"Electronic\",\n        \"slika2\": \"assa\",\n        \"opis\": \"dasdadsd@gmail.com\",\n        \"prioritet\": 1,\n        \"brojTelefona\": 64000000,\n        \"mejl\": \"Mitrovic\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/predstava/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstava",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PredstavaOsoba",
+			"item": [
+				{
+					"name": "predstavaOsoba/id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ffd4f816-4ad7-40eb-81e5-81c2bdeab7e5",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/predstavaOsoba/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstavaOsoba",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "predstavaOsoba/predstavaId/osobe",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ffd4f816-4ad7-40eb-81e5-81c2bdeab7e5",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/predstavaOsoba/1/osobe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstavaOsoba",
+								"1",
+								"osobe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "predstavaOsoba",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/predstavaOsoba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstavaOsoba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "predstavaOsoba",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"uloga\": \"Direktor2\",\n    \"predstava\": {\n        \"id\": 1,\n        \"naslov\": \"Hamlet\",\n        \"opis\": \"laaslasl\",\n        \"slika\": \"dddd\",\n        \"slike\": {\n            \"id\": 1,\n            \"namena\": null,\n            \"datum\": null,\n            \"sadrzaj\": null\n        },\n        \"video\": \"Hamlet\",\n        \"osoba\": {\n            \"id\": 1,\n            \"ime\": \"Dejan\",\n            \"prezime\": \"CAR\",\n            \"slika1\": \"Electronic\",\n            \"slika2\": \"assa\",\n            \"opis\": \"dasdadsd@gmail.com\",\n            \"prioritet\": 1,\n            \"brojTelefona\": 64000000,\n            \"mejl\": \"Mitrovic\"\n        }\n    },\n    \"osoba\": {\n        \"id\": 1,\n        \"ime\": \"Dejan\",\n        \"prezime\": \"CAR\",\n        \"slika1\": \"Electronic\",\n        \"slika2\": \"assa\",\n        \"opis\": \"dasdadsd@gmail.com\",\n        \"prioritet\": 1,\n        \"brojTelefona\": 64000000,\n        \"mejl\": \"Mitrovic\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/predstavaOsoba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstavaOsoba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "predstavaOsoba",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/predstavaOsoba/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstavaOsoba",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "predstavaOsoba",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"uloga\": \"Direktor\",\n    \"predstava\": {\n        \"id\": 1,\n        \"naslov\": \"Hamlet\",\n        \"opis\": \"laaslasl\",\n        \"slika\": \"dddd\",\n        \"slike\": {\n            \"id\": 1,\n            \"namena\": null,\n            \"datum\": null,\n            \"sadrzaj\": null\n        },\n        \"video\": \"Hamlet\",\n        \"osoba\": {\n            \"id\": 1,\n            \"ime\": \"Dejan\",\n            \"prezime\": \"CAR\",\n            \"slika1\": \"Electronic\",\n            \"slika2\": \"assa\",\n            \"opis\": \"dasdadsd@gmail.com\",\n            \"prioritet\": 1,\n            \"brojTelefona\": 64000000,\n            \"mejl\": \"Mitrovic\"\n        }\n    },\n    \"osoba\": {\n        \"id\": 1,\n        \"ime\": \"Dejan\",\n        \"prezime\": \"CAR\",\n        \"slika1\": \"Electronic\",\n        \"slika2\": \"assa\",\n        \"opis\": \"dasdadsd@gmail.com\",\n        \"prioritet\": 1,\n        \"brojTelefona\": 64000000,\n        \"mejl\": \"Mitrovic\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/predstavaOsoba/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"predstavaOsoba",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Repertoar",
+			"item": [
+				{
+					"name": "repertoar/id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ffd4f816-4ad7-40eb-81e5-81c2bdeab7e5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/repertoar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"repertoar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repertoar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/repertoar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"repertoar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repertoar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"datum\": 1074618000000,\n    \"predstava\": {\n        \"id\": 2,\n        \"naslov\": \"Hamlet\",\n        \"opis\": \"dobra predstava\",\n        \"slika\": \"slika1\",\n        \"slike\": {\n            \"id\": 1,\n            \"namena\": null,\n            \"datum\": null,\n            \"sadrzaj\": null\n        },\n        \"video\": \"trejler1\",\n        \"osoba\": {\n            \"id\": 1,\n            \"ime\": \"Dejan\",\n            \"prezime\": \"CAR\",\n            \"slika1\": \"Electronic\",\n            \"slika2\": \"assa\",\n            \"opis\": \"dasdadsd@gmail.com\",\n            \"prioritet\": 1,\n            \"brojTelefona\": 64000000,\n            \"mejl\": \"Mitrovic\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/repertoar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"repertoar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repertoar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/repertoar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"repertoar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repertoar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"datum\": 10101010,\n    \"predstava\": {\n        \"id\": 2,\n        \"naslov\": \"Dejan\",\n        \"opis\": \"dobra predstava\",\n        \"slika\": \"slika1\",\n        \"slike\": {\n            \"id\": 1,\n            \"namena\": null,\n            \"datum\": null,\n            \"sadrzaj\": null\n        },\n        \"video\": \"trejler11\",\n        \"osoba\": {\n            \"id\": 1,\n            \"ime\": \"Dejan\",\n            \"prezime\": \"CAR\",\n            \"slika1\": \"Electronic\",\n            \"slika2\": \"assa\",\n            \"opis\": \"dasdadsd@gmail.com\",\n            \"prioritet\": 1,\n            \"brojTelefona\": 64000000,\n            \"mejl\": \"Mitrovic\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/repertoar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"repertoar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vesti",
+			"item": [
+				{
+					"name": "vesti/id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ffd4f816-4ad7-40eb-81e5-81c2bdeab7e5",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/vesti/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vesti",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vesti",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/vesti",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vesti"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vesti",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"opis\": \"Rezim ljubavi\",\n    \"naslov\": \"Rezim ljubavi\",\n    \"slike\": {\n        \"id\": 2,\n        \"namena\": \"Electronic\",\n        \"datum\": 1040403600000,\n        \"sadrzaj\": \"https://pbs.twimg.com/profile_images/893108438972063744/IWwbjH9X_400x400.jpg\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vesti",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vesti"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vesti",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vesti/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vesti",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vesti",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1Mzc3OTk2NjU2NTgsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZXhwIjoxNTM3ODE3NjY1fQ.ikiJttRMSVvukTFLQRXTr7C7dUZZwZ0aL6KjZ3Tasz2pBSD8i5bXDklyMpLQlKircCJ8OzAeHuMyPCcQ7Zlqfg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"opis\": \"Rezim2w ljubavi\",\n    \"naslov\": \"Rezim ljubavi\",\n    \"slike\": {\n        \"id\": 2,\n        \"namena\": \"Electronic\",\n        \"datum\": 1040403600000,\n        \"sadrzaj\": \"https://pbs.twimg.com/profile_images/893108438972063744/IWwbjH9X_400x400.jpg\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vesti/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vesti",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Login as ADMIN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"pozoristepromena1978\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
