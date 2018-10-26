@@ -18,7 +18,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<a routerLink=\"/login\">LOGIN</a>\n"
+module.exports = "\r\n\r\n<a routerLink=\"/login\">LOGIN</a>\r\n"
 
 /***/ }),
 
@@ -150,7 +150,7 @@ module.exports = "img {\r\n  width: 30%;\r\n        height: 270px;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngFor=\"let vest of vesti; let i = index\">\n  <div>Naslov: {{vest.naslov}}</div>\n  <div>Opis: {{vest.opis}}</div>\n  <img class=\"car--image\" src=\"{{vest.slike.sadrzaj}}\">\n</div>\n\n<a routerLink=\"/login\">LOGIN</a>\n"
+module.exports = "<div *ngFor=\"let vest of vesti; let i = index\">\r\n  <div>Naslov: {{vest.naslov}}</div>\r\n  <div>Opis: {{vest.opis}}</div>\r\n  <img class=\"car--image\" src=\"{{vest.slike.sadrzaj}}\">\r\n</div>\r\n\r\n<a routerLink=\"/login\">LOGIN</a>\r\n"
 
 /***/ }),
 

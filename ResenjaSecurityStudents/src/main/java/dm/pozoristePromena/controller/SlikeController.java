@@ -1,10 +1,14 @@
 package dm.pozoristePromena.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,7 +24,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dm.pozoristePromena.dto.OsobaDTO;
 import dm.pozoristePromena.dto.SlikeDTO;
+import dm.pozoristePromena.model.Osoba;
 import dm.pozoristePromena.model.Slike;
 import dm.pozoristePromena.service.SlikeService;
 
@@ -35,12 +41,43 @@ public class SlikeController {
 	private SlikeService slikeService;
 
 //    @PreAuthorize("isAuthenticated()")
+//	@GetMapping
+//	public ResponseEntity<List<SlikeDTO>> getSlikePage() {
+//		final List<SlikeDTO> retVal = slikeService.findAll().stream().map(SlikeDTO::new)
+//				.collect(Collectors.toList());
+//
+//		return new ResponseEntity<>(retVal, HttpStatus.OK);
+//	}
+	
 	@GetMapping
-	public ResponseEntity<List<SlikeDTO>> getSlikePage() {
-		final List<SlikeDTO> retVal = slikeService.findAll().stream().map(SlikeDTO::new)
-				.collect(Collectors.toList());
+	public ResponseEntity<List<SlikeDTO>> getSlikePage(Pageable page) {
+		
+		Page<Slike> slike = slikeService.findAll(page);
+		
+		HttpHeaders headers = new HttpHeaders();
+		long ukupnoSlika = slike.getTotalElements();
+		headers.add("X-Total-Count", String.valueOf(ukupnoSlika));
+		
+		List<SlikeDTO> retVal = convertListaSlikeToDTO(slike.getContent());
+		
+		return new ResponseEntity<> (retVal, headers, HttpStatus.OK);
+	}
+	
+private List<SlikeDTO> convertListaSlikeToDTO(List<Slike> slike){
+		
+		List<SlikeDTO> retVal = new ArrayList<>();
+		
+		for(Slike slika: slike){
+			SlikeDTO slikaDTO = new SlikeDTO(slika);
+			
+			slikaDTO.setId(slika.getId());
+			slikaDTO.setDatum(slika.getDatum());
+			slikaDTO.setNamena(slika.getNamena());
+			slikaDTO.setSadrzaj(slika.getSadrzaj());
 
-		return new ResponseEntity<>(retVal, HttpStatus.OK);
+			retVal.add(slikaDTO);
+		}
+		return retVal;
 	}
 
 //	@PreAuthorize("isAuthenticated()")

@@ -32,9 +32,23 @@ var map = {
 		"./src/app/components/page-not-found/page-not-found.module.ts",
 		"components-page-not-found-page-not-found-module"
 	],
+	"./components/predstava-osobe/predstava-osobe-item/predstava-osobe-item.module": [
+		"./src/app/components/predstava-osobe/predstava-osobe-item/predstava-osobe-item.module.ts",
+		"common",
+		"components-predstava-osobe-predstava-osobe-item-predstava-osobe-item-module"
+	],
+	"./components/predstava-osobe/predstava-osobe.module": [
+		"./src/app/components/predstava-osobe/predstava-osobe.module.ts",
+		"common",
+		"components-predstava-osobe-predstava-osobe-module"
+	],
 	"./components/pronadjena-strana/pronadjena-strana.module": [
 		"./src/app/components/pronadjena-strana/pronadjena-strana.module.ts",
 		"components-pronadjena-strana-pronadjena-strana-module"
+	],
+	"./components/repertoar/repertoar.module": [
+		"./src/app/components/repertoar/repertoar.module.ts",
+		"components-repertoar-repertoar-module"
 	],
 	"./components/slike/slike.module": [
 		"./src/app/components/slike/slike.module.ts",
@@ -50,7 +64,7 @@ function webpackAsyncContext(req) {
 			throw e;
 		});
 	}
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		var id = ids[0];
 		return __webpack_require__(id);
 	});
@@ -81,7 +95,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"home\">PozoristePromena</a>\n      <a class=\"navbar-brand\" href=\"istorijat\">Istorijat</a>\n      <a class=\"navbar-brand\" href=\"nova\">Predstava</a>\n      <a class=\"navbar-brand\" href=\"nova\">Repertoar</a>\n      <a class=\"navbar-brand\" href=\"galerija\">Galerija</a>\n      <a class=\"navbar-brand\" href=\"ansambl\">Ansambl</a>\n      <a class=\"navbar-brand\" href=\"kontakt\">Kontakt</a>\n      <a class=\"navbar-brand\" href=\"oNama\">O nama</a>\n    </div>\n    <div id=\"navbar\" class=\"navbar-collapse collapse\">\n      <!-- <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a href=\"studenti\">Students</a></li>\n        <li><a href=\"about\">About</a></li>\n        <li><a href=\"contact\">Contact</a></li>\n      </ul> -->\n      <ul class=\"nav navbar-nav pull-right\">\n          <!-- <li *ngIf=\"!isLoggedIn()\"><a (click)=\"toggleLogIn()\">LogIn</a></li> -->\n            <!-- <li  (click)=\"toggleLogIn()\" routerLink=\"login\"><a>LogIn</a></li> -->\n            <li *ngIf=\"isLoggedIn()\" [routerLink]=\"['../nova']\"><a (click)=\"logout()\">Logout</a></li>\n\t\t\t\t<!-- <li *ngIf=\"isLoggedIn()\"><Za (click)=\"logout()\">Logout</a></li> -->\n\t\t\t</ul>\n    </div>\n  </div>\n</nav>\n\n    <router-outlet></router-outlet>\n"
+module.exports = "<div class=\"navigation-group\">\r\n  <div [hidden]=\"bigNavigation\" (mouseenter)=\"showHideBigNav()\" class=\"container-small-navigation\">\r\n    <div href=\"home\" class=\"logo\">\r\n      <div class=\"img\"></div>\r\n    </div>\r\n    <div class=\"navlist\">\r\n      <p>\r\n        <!--<a class=\"navbar-brand\" href=\"nova\">Predstava</a>-->\r\n        <a href=\"kontakt\">Kontakt</a>\r\n        <a href=\"galerija\">Galerija</a>\r\n        <a href=\"ansambl\">Ansambl</a>\r\n        <a href=\"repertoar\">Repertoar</a>\r\n        <a href=\"oNama\">O nama</a>\r\n      </p>\r\n    </div>\r\n    <div class=\"nav-social\">\r\n      <div class=\"line\"></div>\r\n      <div class=\"twiter\">\r\n        <div class=\"img\"></div>\r\n      </div>\r\n      <div class=\"facebook\">\r\n        <div class=\"img\"></div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div [hidden]=\"!bigNavigation\" (mouseleave)=\"showHideBigNav()\" class=\"container-big-navigation\">\r\n    <div class=\"logo\"  href=\"home\">\r\n      <div class=\"img\"></div>\r\n      <div class=\"title\">\r\n        <div>POZORIŠTE</div>\r\n        <div>PROMENA</div>\r\n      </div>\r\n      <div class=\"line\"></div>\r\n    </div>\r\n    <div class=\"navlist\">\r\n      <a href=\"oNama\">O nama</a>\r\n      <a href=\"repertoar\">Repertoar</a>\r\n      <a href=\"ansambl\">Ansambl</a>\r\n      <a href=\"galerija\">Galerija</a>\r\n      <a href=\"kontakt\">Kontakt</a>\r\n    </div>\r\n    <div class=\"nav-social\">\r\n      <div class=\"line\"></div>\r\n      <div class=\"twiter\">\r\n        <div class=\"img\"></div>\r\n      </div>\r\n      <div class=\"facebook\">\r\n        <div class=\"img\"></div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n<!-- \r\n<nav class=\"navbar navbar-inverse\">\r\n  <div class=\"container\">\r\n    <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n      <ul class=\"nav navbar-nav pull-right\">\r\n        \r\n        <li *ngIf=\"isLoggedIn()\" [routerLink]=\"['../nova']\">\r\n          <a (click)=\"logout()\">Logout</a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav> -->\r\n\r\n\r\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -118,6 +132,8 @@ var AppComponent = /** @class */ (function () {
         this.router = router;
         this.title = 'PozoristePromena';
         this.logIn = false;
+        //html
+        this.bigNavigation = false;
     }
     AppComponent.prototype.ngOnInit = function () {
     };
@@ -149,6 +165,10 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.isAdmin = function () {
         return this.authenticationService.isAdmin();
+    };
+    //html
+    AppComponent.prototype.showHideBigNav = function () {
+        this.bigNavigation = !this.bigNavigation;
     };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -258,6 +278,10 @@ var routes = [
     { path: 'ansambl', loadChildren: './components/osobe/osobe.module#OsobeModule' },
     { path: 'galerija', loadChildren: './components/slike/slike.module#SlikeModule' },
     { path: 'kontakt', loadChildren: './components/kontakt/kontakt.module#KontaktModule' },
+    { path: 'repertoar', loadChildren: './components/repertoar/repertoar.module#RepertoarModule' },
+    { path: 'predstave', loadChildren: './components/predstava-osobe/predstava-osobe.module#PredstavaOsobeModule' },
+    { path: 'predstava/:id',
+        loadChildren: './components/predstava-osobe/predstava-osobe-item/predstava-osobe-item.module#PredstavaOsobeItemModule' },
     { path: '**', loadChildren: './components/page-not-found/page-not-found.module#PageNotFoundModule' }
 ];
 var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(routes);

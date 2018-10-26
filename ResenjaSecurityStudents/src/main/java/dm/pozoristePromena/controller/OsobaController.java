@@ -1,10 +1,13 @@
 package dm.pozoristePromena.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -33,13 +36,49 @@ public class OsobaController {
 	private OsobaService osobaService;
 
 //	 @PreAuthorize("isAuthenticated()")
+//	@GetMapping
+//	public ResponseEntity<List<OsobaDTO>> getOsobaPage() {
+//		final List<OsobaDTO> retVal = osobaService.findAll().stream().map(OsobaDTO::new).collect(Collectors.toList());
+//
+//		return new ResponseEntity<>(retVal, HttpStatus.OK);
+//	}
+//	
+	
 	@GetMapping
-	public ResponseEntity<List<OsobaDTO>> getOsobaPage() {
-		final List<OsobaDTO> retVal = osobaService.findAll().stream().map(OsobaDTO::new).collect(Collectors.toList());
-
-		return new ResponseEntity<>(retVal, HttpStatus.OK);
+	public ResponseEntity<List<OsobaDTO>> getOsobaPage(Pageable page) {
+		
+		Page<Osoba> osobe = osobaService.findAll(page);
+		
+		HttpHeaders headers = new HttpHeaders();
+		long ukupnoOsoba = osobe.getTotalElements();
+		headers.add("X-Total-Count", String.valueOf(ukupnoOsoba));
+		
+		List<OsobaDTO> retVal = convertListaOsobaToDTO(osobe.getContent());
+		
+		return new ResponseEntity<> (retVal, headers, HttpStatus.OK);
 	}
 	
+private List<OsobaDTO> convertListaOsobaToDTO(List<Osoba> osobe){
+		
+		List<OsobaDTO> retVal = new ArrayList<>();
+		
+		for(Osoba osoba: osobe){
+			OsobaDTO osobaDTO = new OsobaDTO(osoba);
+			
+			osobaDTO.setId(osoba.getId());
+			osobaDTO.setIme(osoba.getIme());
+			osobaDTO.setPrezime(osoba.getPrezime());
+			osobaDTO.setSlika1(osoba.getSlika1());
+			osobaDTO.setSlika2(osoba.getSlika2());
+			osobaDTO.setPrioritet(osoba.getPrioritet());
+			osobaDTO.setBrojTelefona(osoba.getBrojTelefona());
+			osobaDTO.setMejl(osoba.getMejl());
+
+			retVal.add(osobaDTO);
+		}
+		return retVal;
+	}
+
 
 //	 @PreAuthorize("isAuthenticated()")
 	@GetMapping("/{id}")

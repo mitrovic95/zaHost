@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "img {\r\n  width: 30%;\r\n        height: 270px;\r\n}"
+module.exports = ""
 
 /***/ }),
 
@@ -18,7 +18,7 @@ module.exports = "img {\r\n  width: 30%;\r\n        height: 270px;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"istorijat--wrapper\" *ngFor=\"let istorijat of istorijats\">  \n  <div class=\"istorijat\">  \n    <img class=\"istorijat--slike\" src=\"{{istorijats.slike}}\">  \n    <h1 class=\"istorijat--tekst\">{{istorijats.tekst}}</h1>  \n  </div>  \n</div>  \nRadi -->\n<div *ngFor=\"let istorijat of istorijats; let i = index\">  \n<h1> zdravo ovo je opis {{istorijat.tekst}}</h1>\n<img class=\"car--image\" src=\"{{istorijat.slike.sadrzaj}}\"> \n\n\n</div>"
+module.exports = "<!-- <div class=\"istorijat--wrapper\" *ngFor=\"let istorijat of istorijats\">  \r\n  <div class=\"istorijat\">  \r\n    <img class=\"istorijat--slike\" src=\"{{istorijats.slike}}\">  \r\n    <h1 class=\"istorijat--tekst\">{{istorijats.tekst}}</h1>  \r\n  </div>  \r\n</div>  \r\nRadi -->\r\n<div *ngFor=\"let istorijat of istorijats; let i = index\">  \r\n<h1> zdravo ovo je opis {{istorijat.tekst}}</h1>\r\n<img class=\"car--image\" src=\"{{istorijat.slike.sadrzaj}}\"> \r\n\r\n\r\n</div>"
 
 /***/ }),
 

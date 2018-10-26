@@ -1,35 +1,40 @@
 package dm.pozoristePromena.controller;
 
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dm.pozoristePromena.dto.LoginDTO;
-import dm.pozoristePromena.dto.SecurityUserDTO;
 import dm.pozoristePromena.dto.TokenDTO;
-import dm.pozoristePromena.model.SecurityUser;
 import dm.pozoristePromena.security.TokenUtils;
 import dm.pozoristePromena.service.UserDetailsServiceImpl;
-import dm.pozoristePromena.util.Crypt;
 
 @RestController
 public class UserController {
@@ -60,7 +65,72 @@ public class UserController {
             return new ResponseEntity<>(new TokenDTO(""), HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+//    @PostMapping(value = "/api/email")
+//	public static MimeMessage createEmailWithAttachment(String to, String from, String subject, String bodyText,
+//			File file) throws MessagingException, IOException {
+//		Properties props = new Properties();
+//		Session session = Session.getDefaultInstance(props, null);
+//
+//		MimeMessage email = new MimeMessage(session);
+//
+//		email.setFrom(new InternetAddress(from));
+//		email.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(to));
+//		email.setSubject(subject);
+//
+//		MimeBodyPart mimeBodyPart = new MimeBodyPart();
+//		mimeBodyPart.setContent(bodyText, "text/plain");
+//
+//		Multipart multipart = new MimeMultipart();
+//		multipart.addBodyPart(mimeBodyPart);
+//
+//		mimeBodyPart = new MimeBodyPart();
+//		DataSource source = new FileDataSource(file);
+//
+//		mimeBodyPart.setDataHandler(new DataHandler(source));
+//		mimeBodyPart.setFileName(file.getName());
+//
+//		multipart.addBodyPart(mimeBodyPart);
+//		email.setContent(multipart);
+//
+//		return email;
+//	}
+    
+    
+//	public static Message sendMessage(Gmail service, String userId, MimeMessage emailContent)
+//			throws MessagingException, IOException {
+//		Message message = createMessageWithEmail(emailContent);
+//		message = service.users().messages().send(userId, message).execute();
+//
+//		System.out.println("Message id: " + message.getId());
+//		System.out.println(message.toPrettyString());
+//		return message;
+//	}
+//	
+//	public static Message createMessageWithEmail(MimeMessage emailContent)
+//            throws MessagingException, IOException {
+//        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+//        emailContent.writeTo(buffer);
+//        byte[] bytes = buffer.toByteArray();
+//        String encodedEmail = Base64.encodeBase64URLSafeString(bytes);
+//        Message message = new Message();
+//        message.setRaw(encodedEmail);
+//        return message;
+//    }
+//	
+//	public static MimeMessage createEmail(String to, String from, String subject, String bodyText)
+//			throws MessagingException {
+//		Properties props = new Properties();
+//		Session session = Session.getDefaultInstance(props, null);
+//
+//		MimeMessage email = new MimeMessage(session);
+//
+//		email.setFrom(new InternetAddress(from));
+//		email.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(to));
+//		email.setSubject(subject);
+//		email.setText(bodyText);
+//		return email;
+//	}
 //    @PreAuthorize("isAuthenticated()")
 //    @GetMapping(value = "api/user")
 //    public ResponseEntity<List<SecurityUserDTO>> getUsersPage() {

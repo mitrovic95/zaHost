@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "img {\r\n  width: 30%;\r\n        height: 270px;\r\n}"
+module.exports = ""
 
 /***/ }),
 
@@ -18,7 +18,7 @@ module.exports = "img {\r\n  width: 30%;\r\n        height: 270px;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngFor=\"let slika of slike; let i = index\">\n  <div>{{slika.namena}}</div>\n  <div>{{slika.datum}}</div>\n  <img src=\"{{slika.sadrzaj}}\">\n</div>"
+module.exports = "<div class=\"container-body\">\r\n    <div class=\"container-repertoire\">\r\n      <div *ngFor=\"let slika of slike; let i = index\">\r\n        <div>{{slika.namena}}</div>\r\n        <div>{{slika.datum | date:'shortDate'}}</div>\r\n        <img src=\"{{slika.sadrzaj}}\">\r\n      </div>\r\n      <div class=\"pagination\">\r\n        <div class=\"left\" (click)=\"ocitajStranu(0)\" style=\"margin-left: 1px\"></div>\r\n        <div class=\"page\" >\r\n          <span><span *ngIf= \"currentPageNumber<10\">0</span>{{currentPageNumber+1}}</span>\r\n        </div>\r\n        <div class=\"line\" >\r\n            <!-- *ngFor=\"let number of ukupnoStranaNiz; let i=index\"\r\n          <a [ngStyle]=\"{'border': currentPageNumber == i ? '2px solid #337ab7' : '#ddd'}\"\r\n              (click)=\"ocitajStranu(i)\" class=\"page-link\" style=\"margin-left: 1px\">{{i+1}}</a> -->\r\n        </div>\r\n        <div class=\"pages\">\r\n            <span><span *ngIf= \"ukupnoStrana<10\">0</span>{{ukupnoStrana}}</span>\r\n        </div>\r\n        <div class=\"right\"  (click)=\"ocitajSledecuStranu()\" style=\"margin-left: 1px\"></div>\r\n      </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -48,14 +48,37 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var SlikeComponent = /** @class */ (function () {
     function SlikeComponent(slikeService) {
         this.slikeService = slikeService;
+        // tslint:disable-next-line:no-inferrable-types
+        this.sizePage = 6;
     }
     SlikeComponent.prototype.ngOnInit = function () {
+        this.currentPageNumber = 0;
+        this.loadDate();
+    };
+    SlikeComponent.prototype.loadDate = function () {
         var _this = this;
-        this.slikeService.getSlike().subscribe(function (slike) {
-            _this.slike = slike;
+        this.slikeService.getSlika(this.currentPageNumber, this.sizePage)
+            .subscribe(function (data) {
+            _this.slike = data.body;
+            _this.ukupnoRepertoara = +data.headers.get('X-Total-Count');
+            _this.ukupnoStrana = Math.ceil(_this.ukupnoRepertoara / _this.sizePage);
+            _this.ukupnoStranaNiz = Array(_this.ukupnoStrana).fill(4);
+            console.log(_this.ukupnoStranaNiz);
         });
-        this.slikeService.getSlike();
-        this.slikeService.slike.subscribe(function (data) { return console.log(data); });
+    };
+    SlikeComponent.prototype.delete = function (index) {
+        console.log(this.slike[index]);
+    };
+    SlikeComponent.prototype.ocitajStranu = function (i) {
+        this.currentPageNumber = i;
+        this.loadDate();
+    };
+    SlikeComponent.prototype.ocitajSledecuStranu = function () {
+        if (this.currentPageNumber == this.ukupnoStrana - 1) {
+            return;
+        }
+        this.currentPageNumber = this.currentPageNumber + 1;
+        this.loadDate();
     };
     SlikeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -171,6 +194,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SlikeService = /** @class */ (function () {
     function SlikeService(http) {
         this.http = http;
@@ -178,8 +202,11 @@ var SlikeService = /** @class */ (function () {
         this.path = '/api/slike';
         this.header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json' });
     }
-    SlikeService.prototype.getSlike = function () {
-        return this.http.get(this.path);
+    SlikeService.prototype.getSlika = function (page, size) {
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]();
+        params = params.append('page', page.toString());
+        params = params.append('size', size.toString());
+        return this.http.get(this.path, { params: params, observe: 'response' });
     };
     SlikeService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

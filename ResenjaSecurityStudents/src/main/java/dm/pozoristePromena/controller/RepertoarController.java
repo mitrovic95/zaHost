@@ -1,10 +1,13 @@
 package dm.pozoristePromena.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dm.pozoristePromena.dto.PredstavaDTO;
 import dm.pozoristePromena.dto.RepertoarDTO;
 import dm.pozoristePromena.model.Repertoar;
 import dm.pozoristePromena.service.RepertoarService;
@@ -33,12 +37,42 @@ public class RepertoarController {
 	private RepertoarService repertoarService;
 
 //	 @PreAuthorize("isAuthenticated()")
+//	@GetMapping
+//	public ResponseEntity<List<RepertoarDTO>> getRepertoarPage() {
+//		final List<RepertoarDTO> retVal = repertoarService.findAll().stream().map(RepertoarDTO::new)
+//				.collect(Collectors.toList());
+//
+//		return new ResponseEntity<>(retVal, HttpStatus.OK);
+//	}
+	
 	@GetMapping
-	public ResponseEntity<List<RepertoarDTO>> getRepertoarPage() {
-		final List<RepertoarDTO> retVal = repertoarService.findAll().stream().map(RepertoarDTO::new)
-				.collect(Collectors.toList());
-
-		return new ResponseEntity<>(retVal, HttpStatus.OK);
+	public ResponseEntity<List<RepertoarDTO>> getProjektiPage(Pageable page) {
+		
+		Page<Repertoar> repertoari = repertoarService.findAll(page);
+		
+		HttpHeaders headers = new HttpHeaders();
+		long ukupnoRepertoara = repertoari.getTotalElements();
+		headers.add("X-Total-Count", String.valueOf(ukupnoRepertoara));
+		
+		List<RepertoarDTO> retVal = convertListaRepertoaraToDTO(repertoari.getContent());
+		
+		return new ResponseEntity<> (retVal, headers, HttpStatus.OK);
+	}
+	
+private List<RepertoarDTO> convertListaRepertoaraToDTO(List<Repertoar> repertoari){
+		
+		List<RepertoarDTO> retVal = new ArrayList<>();
+		
+		for(Repertoar repertoar: repertoari){
+			RepertoarDTO repertoarDTO = new RepertoarDTO(repertoar);
+			
+			repertoarDTO.setId(repertoar.getId());
+			repertoarDTO.setDatum((repertoar.getDatum()));
+			repertoarDTO.setPredstava(new PredstavaDTO(repertoar.getPredstava()));
+			
+			retVal.add(repertoarDTO);
+		}
+		return retVal;
 	}
 
 //	 @PreAuthorize("isAuthenticated()")

@@ -18,7 +18,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\n  Wrong page buddy :)\n</h1>\n"
+module.exports = "<h1>\r\n  Wrong page buddy :)\r\n</h1>\r\n"
 
 /***/ }),
 

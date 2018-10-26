@@ -18,7 +18,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngFor=\"let osoba of osobe; let i = index\">\n  <div>{{osoba.ime}}</div>\n  <div>{{osoba.prezime}}</div>\n  <div>{{osoba.slika1}}</div>\n  <div>{{osoba.slika2}}</div>\n  <div>{{osoba.opis}}</div>\n  <div>{{osoba.prioritet}}</div>\n  <div>{{osoba.brojTelefona}}</div>\n  <div>{{osoba.mejl}}</div>\n</div>\n<!-- export interface Osoba {\n  id?: number;\n  ime: string;\n  prezime: string;\n  slika1: string;\n  slika2: string;\n  opis: string;\n  prioritet: number;\n  brojTelefona: number;\n  mejl: string;\n} -->\n"
+module.exports = "<div class=\"container-body\">\r\n  <div class=\"container-ensemble\">\r\n    <div class=\"title\">Ansambl</div>\r\n    <div class=\"content\">\r\n      <div class=\"left\" (mouseover)=\"imgVersion = 2\" (mouseout)=\"imgVersion = 1\">\r\n        <div class=\"basic\">\r\n          <div class=\"center\">\r\n            <img class=\"img\" src=\"/assets/images/Ensemble/img_1_{{imgVersion}}.png\">\r\n            <div class=\"name-s\">Mladen Potrebic</div>\r\n            <div class=\"information\">\r\n              <div class=\"line\">\r\n                <div></div>\r\n              </div>\r\n              <div class=\"name-full\">Mladen Potrebic</div>\r\n              <div class=\"line-v\"></div>\r\n              <div class=\"position\">Glumac</div>\r\n            </div>\r\n\r\n          </div>\r\n\r\n        </div>\r\n        <div class=\"mail-address\">\r\n          <div class=\"text\">Kontakt</div>\r\n          <div class=\"small-line\"></div>\r\n          <div class=\"text\">mladen.potrebic@gmail.com</div>\r\n        </div>\r\n      </div>\r\n      <div class=\"right\">\r\n        <div class=\"container-list\">\r\n          <div class=\"title\">GLUMCI</div>\r\n          <div class=\"title\">/</div>\r\n          <div class=\"title\">Dramaturzi</div>\r\n          <div class=\"list\">\r\n            <div class=\"person\">\r\n              <img class=\"img\" src=\"/assets/images/Ensemble/img_1_a.png\">\r\n              <div class=\"full-name\">\r\n                <h1>Nikoleta Stamenkovic</h1>\r\n              </div>\r\n            </div>\r\n            <div class=\"person\">\r\n              <img class=\"img\" src=\"/assets/images/Ensemble/img_1_a.png\">\r\n              <div class=\"full-name\">\r\n                <h1>Nikoleta Stamenkovic</h1>\r\n              </div>\r\n            </div>\r\n            <div class=\"person\">\r\n              <img class=\"img\" src=\"/assets/images/Ensemble/img_1_a.png\">\r\n              <div class=\"full-name\">\r\n                <h1>Nikoleta Stamenkovic</h1>\r\n              </div>\r\n            </div>\r\n            <div class=\"person\">\r\n              <img class=\"img\" src=\"/assets/images/Ensemble/img_1_a.png\">\r\n              <div class=\"full-name\">\r\n                <h1>Nikoleta Stamenkovic</h1>\r\n              </div>\r\n            </div>\r\n            <div class=\"person\">\r\n              <img class=\"img\" src=\"/assets/images/Ensemble/img_1_a.png\">\r\n              <div class=\"full-name\">\r\n                <h1>Nikoleta Stamenkovic</h1>\r\n              </div>\r\n            </div>\r\n            <div class=\"person\">\r\n              <img class=\"img\" src=\"/assets/images/Ensemble/img_1_a.png\">\r\n              <div class=\"full-name\">\r\n                <h1>Nikoleta Stamenkovic</h1>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"pagination\">\r\n              <div class=\"left-a\" (click)=\"ocitajStranu(0)\" style=\"margin-left: 1px\"></div>\r\n              <div class=\"page-a\">\r\n                <span>\r\n                  <span *ngIf=\"currentPageNumber<10\">0</span>{{currentPageNumber+1}}</span>\r\n              </div>\r\n              <div class=\"line-a\">\r\n                <!-- *ngFor=\"let number of ukupnoStranaNiz; let i=index\"\r\n                <a [ngStyle]=\"{'border': currentPageNumber == i ? '2px solid #337ab7' : '#ddd'}\"\r\n                     (click)=\"ocitajStranu(i)\" class=\"page-link\" style=\"margin-left: 1px\">{{i+1}}</a> -->\r\n              </div>\r\n              <div class=\"pages-a\">\r\n                <span>\r\n                  <span *ngIf=\"ukupnoStrana<10\">0</span>{{ukupnoStrana}}</span>\r\n              </div>\r\n              <div class=\"right-a\" (click)=\"ocitajSledecuStranu()\" style=\"margin-left: 1px\"></div>\r\n            </div>\r\n            \r\n          <!-- <div class=\"pagination\">\r\n            <div class=\"left-a\"></div>\r\n            <div class=\"page-a\">\r\n              <span>01</span>\r\n            </div>\r\n            <div class=\"line-a\"></div>\r\n            <div class=\"pages-a\">\r\n              <span>05</span>\r\n            </div>\r\n            <div class=\"right-a\"></div>\r\n          </div> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!--\r\n\r\n<div *ngFor=\"let osoba of osobe; let i = index\">\r\n  <div>{{osoba.ime}}</div>\r\n  <div>{{osoba.prezime}}</div>\r\n  <div>{{osoba.slika1}}</div>\r\n  <div>{{osoba.slika2}}</div>\r\n  <div>{{osoba.opis}}</div>\r\n  <div>{{osoba.prioritet}}</div>\r\n  <div>{{osoba.brojTelefona}}</div>\r\n  <div>{{osoba.mejl}}</div>\r\n</div>\r\n-->\r\n<!-- export interface Osoba {\r\n  id?: number;\r\n  ime: string;\r\n  prezime: string;\r\n  slika1: string;\r\n  slika2: string;\r\n  opis: string;\r\n  prioritet: number;\r\n  brojTelefona: number;\r\n  mejl: string;\r\n} -->"
 
 /***/ }),
 
@@ -46,16 +46,42 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var OsobeComponent = /** @class */ (function () {
-    function OsobeComponent(osobaService) {
-        this.osobaService = osobaService;
+    // public repertoar: Repertoar;
+    // public id?: number;
+    function OsobeComponent(osobeService) {
+        this.osobeService = osobeService;
+        // tslint:disable-next-line:no-inferrable-types
+        this.sizePage = 6;
+        this.imgVersion = 1;
     }
     OsobeComponent.prototype.ngOnInit = function () {
+        this.currentPageNumber = 0;
+        this.loadDate();
+    };
+    OsobeComponent.prototype.loadDate = function () {
         var _this = this;
-        this.osobaService.getOsobe().subscribe(function (osobe) {
-            _this.osobe = osobe;
+        this.osobeService.getOsoba(this.currentPageNumber, this.sizePage)
+            .subscribe(function (data) {
+            _this.osobe = data.body;
+            _this.ukupnoRepertoara = +data.headers.get('X-Total-Count');
+            _this.ukupnoStrana = Math.ceil(_this.ukupnoRepertoara / _this.sizePage);
+            _this.ukupnoStranaNiz = Array(_this.ukupnoStrana).fill(4);
+            console.log(_this.ukupnoStranaNiz);
         });
-        this.osobaService.getOsobe();
-        this.osobaService.osobe.subscribe(function (data) { return console.log(data); });
+    };
+    OsobeComponent.prototype.delete = function (index) {
+        console.log(this.osobe[index]);
+    };
+    OsobeComponent.prototype.ocitajStranu = function (i) {
+        this.currentPageNumber = i;
+        this.loadDate();
+    };
+    OsobeComponent.prototype.ocitajSledecuStranu = function () {
+        if (this.currentPageNumber == this.ukupnoStrana - 1) {
+            return;
+        }
+        this.currentPageNumber = this.currentPageNumber + 1;
+        this.loadDate();
     };
     OsobeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -171,6 +197,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var OsobeService = /** @class */ (function () {
     function OsobeService(http) {
         this.http = http;
@@ -178,8 +205,11 @@ var OsobeService = /** @class */ (function () {
         this.path = '/api/osoba';
         this.header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json' });
     }
-    OsobeService.prototype.getOsobe = function () {
-        return this.http.get(this.path);
+    OsobeService.prototype.getOsoba = function (page, size) {
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]();
+        params = params.append('page', page.toString());
+        params = params.append('size', size.toString());
+        return this.http.get(this.path, { params: params, observe: 'response' });
     };
     OsobeService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
