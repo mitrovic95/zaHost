@@ -4,6 +4,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+import { HttpResponse } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +18,18 @@ export class SlikeService {
 
     constructor(private http: HttpClient) { }
 
-    getSlike(): Observable<Slike[]> {
-      return this.http.get(this.path) as Observable<Slike[]>;
+    getSlika(page: number, size ): Observable<HttpResponse<Slike[]>> {
+
+      let params = new HttpParams();
+      params = params.append('page', page.toString());
+      params = params.append('size', size.toString());
+
+      return this.http.get(this.path,  {params: params, observe: 'response' }) as Observable<HttpResponse<Slike[]>>;
     }
+
+    // getSlike(): Observable<Slike[]> {
+    //   return this.http.get(this.path) as Observable<Slike[]>;
+    // }
 
   //   getCompany(id: number): Observable<Company> {
   //     // console.log('JEDAN USER ID', id);

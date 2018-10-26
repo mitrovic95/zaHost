@@ -17,6 +17,10 @@ export class AppComponent implements OnInit {
 
   public wrongUsernameOrPass: boolean;
 
+  //html
+  public bigNavigation = false;
+  
+
   constructor(private authenticationService: AuthenticationService,
     private router: Router) {
   }
@@ -58,4 +62,10 @@ export class AppComponent implements OnInit {
   isAdmin(): boolean {
     return this.authenticationService.isAdmin();
   }
+
+  //html
+  public showHideBigNav(){
+    this.bigNavigation = !this.bigNavigation;
+  }
+
 }

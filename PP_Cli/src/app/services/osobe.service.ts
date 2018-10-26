@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { Osoba } from './../model/osoba';
+import { HttpResponse } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +18,19 @@ export class OsobeService {
 
   constructor(private http: HttpClient) { }
 
-  getOsobe(): Observable<Osoba[]> {
-    return this.http.get(this.path) as Observable<Osoba[]>;
+
+  getOsoba(page: number, size ): Observable<HttpResponse<Osoba[]>> {
+
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+    params = params.append('size', size.toString());
+
+    return this.http.get(this.path,  {params: params, observe: 'response' }) as Observable<HttpResponse<Osoba[]>>;
   }
+
+  // getOsobe(): Observable<Osoba[]> {
+  //   return this.http.get(this.path) as Observable<Osoba[]>;
+  // }
 
 //   getCompany(id: number): Observable<Company> {
 //     // console.log('JEDAN USER ID', id);

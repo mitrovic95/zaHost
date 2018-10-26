@@ -1,29 +1,74 @@
-<nav class="navbar navbar-inverse">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="home">PozoristePromena</a>
-      <a class="navbar-brand" href="istorijat">Istorijat</a>
-      <a class="navbar-brand" href="nova">Predstava</a>
-      <a class="navbar-brand" href="nova">Repertoar</a>
-      <a class="navbar-brand" href="galerija">Galerija</a>
-      <a class="navbar-brand" href="ansambl">Ansambl</a>
-      <a class="navbar-brand" href="kontakt">Kontakt</a>
-      <a class="navbar-brand" href="oNama">O nama</a>
+<div class="navigation-group">
+  <div [hidden]="bigNavigation" (mouseenter)="showHideBigNav()" class="container-small-navigation">
+    <div href="home" class="logo">
+      <div class="img"></div>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <!-- <ul class="nav navbar-nav">
-        <li class="active"><a href="studenti">Students</a></li>
-        <li><a href="about">About</a></li>
-        <li><a href="contact">Contact</a></li>
-      </ul> -->
-      <ul class="nav navbar-nav pull-right">
-          <!-- <li *ngIf="!isLoggedIn()"><a (click)="toggleLogIn()">LogIn</a></li> -->
-            <!-- <li  (click)="toggleLogIn()" routerLink="login"><a>LogIn</a></li> -->
-            <li *ngIf="isLoggedIn()" [routerLink]="['../nova']"><a (click)="logout()">Logout</a></li>
-				<!-- <li *ngIf="isLoggedIn()"><Za (click)="logout()">Logout</a></li> -->
-			</ul>
+    <div class="navlist">
+      <p>
+        <!--<a class="navbar-brand" href="nova">Predstava</a>-->
+        <a href="kontakt">Kontakt</a>
+        <a href="galerija">Galerija</a>
+        <a href="ansambl">Ansambl</a>
+        <a href="repertoar">Repertoar</a>
+        <a href="oNama">O nama</a>
+      </p>
+    </div>
+    <div class="nav-social">
+      <div class="line"></div>
+      <div class="twiter">
+        <div class="img"></div>
+      </div>
+      <div class="facebook">
+        <div class="img"></div>
+      </div>
     </div>
   </div>
-</nav>
 
-    <router-outlet></router-outlet>
+  <div [hidden]="!bigNavigation" (mouseleave)="showHideBigNav()" class="container-big-navigation">
+    <div class="logo" href="home">
+      <div class="img"></div>
+      <div class="title">
+        <div>POZORIŠTE</div>
+        <div>PROMENA</div>
+      </div>
+      <div class="line"></div>
+    </div>
+    <div class="navlist">
+      <a href="oNama">O nama</a>
+      <a href="repertoar">Repertoar</a>
+      <a href="ansambl">Ansambl</a>
+      <a href="galerija">Galerija</a>
+      <a href="kontakt">Kontakt</a>
+    </div>
+    <div class="nav-social">
+      <div class="line"></div>
+      <div class="twiter">
+        <div class="img"></div>
+      </div>
+      <div class="facebook">
+        <div class="img"></div>
+      </div>
+      <div class="youtube">
+        <div class="img"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav pull-right">
+        
+        <li *ngIf="isLoggedIn()" [routerLink]="['../nova']">
+          <a (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+
+<router-outlet></router-outlet>

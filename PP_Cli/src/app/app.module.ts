@@ -10,7 +10,7 @@ import { TokenInterceptorService } from 'src/app/login-service/token-interceptor
 import { AuthenticationService } from 'src/app/login-service/authentication-service.service';
 import { CanActivateAuthGuard } from 'src/app/login-service/can-activate-auth.guard';
 import { JwtUtilsService } from 'src/app/login-service/jwt-utils.service';
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
